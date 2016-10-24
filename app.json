@@ -1,0 +1,37 @@
+{
+	"pages":[
+		"pages/home/home",
+		"pages/more/more",
+    "pages/moviedetail/moviedetail"
+	],
+
+	"window": {
+		"navigationBarBackgroundColor": "red",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "首页",
+		"backgroundColor": "#e5e5e5"
+	},
+
+	"tabBar": {
+    "color": "#596d7a",
+    "selectedColor": "#f36b37",
+    "borderStyle": "white",
+    "backgroundColor": "light",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/tabbar/sy_normal.png",
+        "selectedIconPath": "images/tabbar/sy_selected.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "我的",
+        "iconPath": "images/tabbar/wd_normal.png",
+        "selectedIconPath": "images/tabbar/wd_selected.png"
+      }
+    ]
+  },
+
+  "debug": true
+}

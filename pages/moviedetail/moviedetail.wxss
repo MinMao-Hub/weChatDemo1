@@ -1,0 +1,71 @@
+.container {
+	background-color: #e5e5e5;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 32rpx;
+    max-height: 100%;
+    min-height:95%;
+}
+.top_container {
+	background-color: #3d3d3b;
+}
+
+.movie_info {
+	margin: 0rpx 0;
+	padding: 20rpx;
+	/*border-radius:8rpx;*/
+	/*background-color: #efefef;*/
+	color: #e5e5e5;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.movie-image {
+	/*position: absolute;*/
+	width: 150rpx;
+	height: 260rpx;
+}
+
+.movie-container {
+	/*display: inline-block;*/
+	position: absolute;
+	left: 180rpx;
+	top: 0;
+	right: 0;
+}
+
+.movie-name {
+	font-size: 38rpx;
+	margin-top: 20rpx;
+}
+
+.movie-english-name {
+	font-size: 28rpx;
+	margin-top: 1rpx;
+}
+
+.movie-score {
+	margin-left: 35rpx;
+	color: #f36b37;
+}
+
+.movie-detail-info {
+	margin-top: 8rpx;
+	margin-right: 8rpx; 
+}
+
+.people-name {
+	font-size: 25rpx;
+}
+
+.middle_container {
+	background-color: #ffffff;
+	padding: 20rpx;
+	font-size: 28rpx;
+}
+
+.directorys_casts {
+	margin-top: 20rpx;
+}
+

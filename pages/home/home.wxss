@@ -1,0 +1,60 @@
+
+.container {
+	background-color: #FBF9FE;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    padding: 20rpx;
+    font-size: 32rpx;
+    max-height: 100%;
+    min-height:95%;
+}
+
+.movie_info {
+	margin: 10rpx 0;
+	padding: 20rpx;
+	border-radius:8rpx;
+	background-color: #efefef;
+	color: #000000;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.movie-image {
+	/*position: absolute;*/
+	width: 150rpx;
+	height: 260rpx;
+}
+
+.movie-container {
+	/*display: inline-block;*/
+	position: absolute;
+	left: 180rpx;
+	top: 0;
+	right: 0;
+}
+
+.movie-name {
+	font-size: 38rpx;
+	margin-top: 20rpx;
+}
+
+.movie-score {
+	margin-left: 35rpx;
+	color: #f36b37;
+}
+
+.movie-detail-info {
+	margin-top: 8rpx;
+	margin-right: 8rpx; 
+}
+
+.people-name {
+	font-size: 25rpx;
+}
+
+.tapLoadMore {
+	margin-top: 10rpx;
+	height: 55rpx;
+	text-align: center;
+}

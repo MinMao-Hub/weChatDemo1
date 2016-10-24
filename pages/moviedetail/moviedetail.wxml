@@ -1,0 +1,48 @@
+<page>
+	<view class="container">
+		<view class="top_container">
+			<Loading hidden="{{loadingHidden}}">loading...</Loading>
+			<view class="movie_info">
+				<image class="movie-image" mode="aspectFill" src="{{movieInfo.images.large}}"></image>
+				<view class="movie-container">
+					<view class="movie-name">
+						<!-- 名字、评分 -->
+						<text>{{movieInfo.title}}</text><text class="movie-score">{{movieInfo.rating.average}}分</text>
+					</view>
+					<!-- 英文名 -->
+					<view class="movie-english-name">
+						<!-- 名字、评分 -->
+						<text>{{movieInfo.aka[movieInfo.aka.length - 1]}}</text>
+					</view>
+					<!-- 类型 -->
+					<view class="movie-detail-info">
+						<text class="people-name">类型: </text>
+						<span class="people-name" wx:for-items="{{movieInfo.genres}}">
+							{{index ? '/' : ''}}{{item}}
+						</span>
+					</view>
+					<!-- 地区 -->
+					<view class="movie-detail-info">
+						<text class="people-name">地区: </text> 
+						<span class="people-name" wx:for-items="{{movieInfo.countries}}">
+							{{index ? '/' : ''}}{{item}}
+						</span>
+					</view>
+
+					<!-- 上映年份 -->
+					<view class="movie-detail-info">
+						<text class="genres" class="people-name">上映年份: {{movieInfo.year}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="middle_container">
+			<view class="movie-description">{{movieInfo.summary}}</view>
+			<view class="directorys_casts">
+				<text>导演</text><text>演员</text>
+			</view>
+			
+
+		</view>
+	</view>
+</page>
