@@ -46,7 +46,7 @@
 					<!-- 导演 -->
 					<text hidden="{{movieInfo.directors.length<1}}">导演</text>
 					<view class="director_view" style="overflow: hidden;">
-						<image class="cast_image" mode="aspectFill" src="{{movieInfo.directors[0].avatars.large}}" bindtap="director_tap" id="{{movieInfo.directors[0].alt}}"></image>
+						<image class="cast_image" mode="aspectFill" src="{{movieInfo.directors[0].avatars.large}}" bindtap="director_tap" id="{{movieInfo.directors[0].id}}"></image>
 						<view>
 						<text style="white-space: nowrap;">{{movieInfo.directors[0].name}}</text></view>
 					</view>
@@ -60,7 +60,7 @@
 					<!-- 演员列表 -->
 							<view class="casts_view" wx:for-items="{{movieInfo.casts}}">
 								<!-- 某一个演员 -->
-								<image class="cast_image" mode="aspectFill" src="{{item.avatars.large}}" bindtap="cast_tap" id="{{item.alt}}"></image>
+								<image class="cast_image" mode="aspectFill" src="{{item.avatars.large}}" bindtap="cast_tap" id="{{item.id}}"></image>
 								<view>
 									<text>{{item.name}}</text>
 								</view>

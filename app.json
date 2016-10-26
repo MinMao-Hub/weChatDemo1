@@ -2,7 +2,8 @@
 	"pages":[
 		"pages/home/home",
 		"pages/more/more",
-    "pages/moviedetail/moviedetail"
+    "pages/moviedetail/moviedetail",
+    "pages/castdetail/castdetail"
 	],
 
 	"window": {

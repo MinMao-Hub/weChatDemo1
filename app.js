@@ -17,6 +17,7 @@ App({
 				  '18', 
 				  'man', 
 				  '1998-12-20', 
-				  'I am a handsome boy']
+				  'I am a handsome boy'],
+		castId:'',
 	}
 })

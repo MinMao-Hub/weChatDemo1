@@ -105,8 +105,16 @@ Page({
 					title:data.title,
 				})
 	     		//想要显示到页面上的数据必须是data上出现的
+
+	     		var movieListData = []
+	     		if (that.data.start == 0) {
+	     			movieListData = data.subjects;
+	     		} else {
+	     			movieListData = that.data.listData.concat(data.subjects);
+	     		}
+
 	     		that.setData({
-	        		listData:that.data.listData.concat(data.subjects),
+	        		listData:movieListData,
 	        		loadingHidden:true,
 	        		start:that.data.start + 10,
 	        		total:data.total

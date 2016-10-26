@@ -83,11 +83,16 @@ Page({
 
 	director_tap: function (e) {
 		console.log(e);
+
+		app.globalData.castId = e.currentTarget.id;
+		wx.navigateTo({url:"../castdetail/castdetail"});
 	},
 
 	cast_tap: function (e) {
 		console.log(e);
-		// console.log(app.globalData.userInfo);
+
+		app.globalData.castId = e.currentTarget.id;
+		wx.navigateTo({url:"../castdetail/castdetail"});
 	},
 
 	shareBtnClicked: function (e) {
