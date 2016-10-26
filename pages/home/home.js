@@ -4,6 +4,10 @@ Page({
 	data: {
 		listData:[],
 		loadingHidden:true,
+		toastHidden:true,
+		start:0,
+		total:0,
+		pageCount:10
 	},
 	onLoad: function () {
 		// Do some initialize when page load.
@@ -56,20 +60,37 @@ Page({
 
 	onPullDownRefresh: function () {
 		// Do something when pull down
+		this.setData({
+    		start:0,
+    		pageCount:10
+ 		})
 		this.requestMovieList()
-		this.setData ({
-			loadingHidden:false
-		})
 	},
 
 	requestMovieList: function () {
 		var that = this
+
+		if (that.data.start > that.data.total) {
+			that.setData ({
+				toastHidden:false
+			})
+			return;
+		}
+
+		that.setData ({
+			loadingHidden:false
+		});
+
 		//加载数据
   		wx.request({
     		//url 请求地址
 	    	url: 'https://api.douban.com/v2/movie/in_theaters',
 	    	//发送给服务器的数据
-	    	data: {},
+	    	data: {
+	    		"start":that.data.start,
+	    		"count":that.data.pageCount,
+	    		"city":"上海"
+	    	},
 	    	header:{
 	      	"Content-Type":"application/json"
     		},
@@ -85,8 +106,10 @@ Page({
 				})
 	     		//想要显示到页面上的数据必须是data上出现的
 	     		that.setData({
-	        		listData:data.subjects,
+	        		listData:that.data.listData.concat(data.subjects),
 	        		loadingHidden:true,
+	        		start:that.data.start + 10,
+	        		total:data.total
 	     		})
 	     		//停止当前页面的下拉刷新
 	     		wx.stopPullDownRefresh()
@@ -97,8 +120,11 @@ Page({
 	loadMoreData: function () {
 		//加载更多数据 -- 没有加载更多接口   这里不做处理
 		this.requestMovieList()
+	},
+
+	toastChange: function () {
 		this.setData ({
-			loadingHidden:false
+			toastHidden:true
 		})
 	},
 

@@ -1,5 +1,6 @@
 <page>
 	<view class="container">
+		<toast hidden="{{toastHidden}}" duration="3000" bindchange="toastChange">没有更多数据啦</toast>
 		<block wx:for-items="{{listData}}">
 			<view id="{{item.id}}{{'|'}}{{item.title}}" class="movie_info" bindtap="selectedCell">
 				<image class="movie-image" mode="aspectFill" src="{{item.images.large}}"></image>
@@ -35,7 +36,6 @@
 			</view>
 		</block>
 		<Loading hidden="{{loadingHidden}}">loading...</Loading>
-		<!-- <toast hidden="{{toastHidden}}" duration="3000" bindchange="toastChange">更新成功</toast> -->
 		<view hidden="{{!loadingHidden}}" class="tapLoadMore" bindtap="loadMoreData">
 			点击加载更多
 		</view>
