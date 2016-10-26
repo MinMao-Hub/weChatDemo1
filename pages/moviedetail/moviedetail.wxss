@@ -61,11 +61,83 @@
 
 .middle_container {
 	background-color: #ffffff;
-	padding: 20rpx;
+	padding: 24rpx;
 	font-size: 28rpx;
 }
 
-.directorys_casts {
-	margin-top: 20rpx;
+.movie-description {
+	color: #3d3d3b;
 }
 
+/*导演演员总外壳*/
+.all_shell {
+	/*display: inline-block;*/
+	position: relative;
+	margin-top: 30rpx;
+}
+
+/*导演壳*/
+.director_shell {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 25%;
+	display: inline-block;
+}
+
+.director_view {
+	text-align: center;
+	margin-top: 10rpx;
+	font-size: 22rpx;
+	color: #3d3d3b;
+}
+
+/*导演演员图片*/
+.cast_image {
+	width: 140rpx;
+	height: 180rpx;
+	margin-bottom: 10rpx;
+	border-radius: 4rpx;
+}
+
+/*演员外壳*/
+.casts_shell {
+	padding-left: 25%;
+	width: 70%;
+	display: inline-block;
+	/*margin-top: 20rpx;*/
+}
+.cast_scroll {
+	margin-top: 10rpx;
+	white-space: nowrap;
+	width: 100%;
+}
+
+.casts_view {
+	display: inline-block;
+	/*width: 140rpx;
+	height: 180rpx;*/
+	position: relative;
+	text-align: center;
+	color: #3d3d3b;
+	font-size: 22rpx;
+	margin-left: 8rpx;
+}
+
+.bottom_container {
+	background-color: #ffffff;
+	padding-top: 30rpx;
+	padding-left: 80rpx;
+	padding-right: 80rpx;
+	padding-bottom: 50rpx;
+	font-size: 28rpx;
+	align-items: center;
+}
+
+.share_btn {
+	padding:25rpx;
+	border-radius: 20rpx;
+	background-color: red;
+	color: white;
+	text-align: center;
+}

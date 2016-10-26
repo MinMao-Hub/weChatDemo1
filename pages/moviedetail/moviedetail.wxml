@@ -38,11 +38,46 @@
 		</view>
 		<view class="middle_container">
 			<view class="movie-description">{{movieInfo.summary}}</view>
-			<view class="directorys_casts">
-				<text>导演</text><text>演员</text>
-			</view>
-			
 
+			<!-- 总外壳 -->
+			<view class="all_shell">
+				<!-- 导演壳 -->
+				<view class="director_shell">
+					<!-- 导演 -->
+					<text hidden="{{movieInfo.directors.length<1}}">导演</text>
+					<view class="director_view" style="overflow: hidden;">
+						<image class="cast_image" mode="aspectFill" src="{{movieInfo.directors[0].avatars.large}}" bindtap="director_tap" id="{{movieInfo.directors[0].alt}}"></image>
+						<view>
+						<text style="white-space: nowrap;">{{movieInfo.directors[0].name}}</text></view>
+					</view>
+				</view>
+
+				<!-- 演员壳 -->
+				<view  class= "casts_shell">
+					<text hidden="{{movieInfo.casts.length<1}}">演员</text>
+					<scroll-view class="cast_scroll" scroll-x="true">
+						<view class="cast_list">
+					<!-- 演员列表 -->
+							<view class="casts_view" wx:for-items="{{movieInfo.casts}}">
+								<!-- 某一个演员 -->
+								<image class="cast_image" mode="aspectFill" src="{{item.avatars.large}}" bindtap="cast_tap" id="{{item.alt}}"></image>
+								<view>
+									<text>{{item.name}}</text>
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+			</view>
 		</view>
+		<view class="bottom_container">
+			<view class="share_btn" bindtap="shareBtnClicked" id="{{movieInfo.mobile_url}}">分享</view>
+		</view>
+		<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+		  <block wx:for="{{shareItem}}">
+		   <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
+		  </block>
+		  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+		</action-sheet>
 	</view>
 </page>

@@ -37,7 +37,6 @@ Page({
 		wx.getStorage({
 			key:"movieListName",
 			success: function(res) {
-				console.log("---------------------" + res.data)
 				//convert object to string
 				var navTitle = '' + res.data
 				wx.setNavigationBarTitle({

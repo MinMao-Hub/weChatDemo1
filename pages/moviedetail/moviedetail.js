@@ -4,6 +4,8 @@ Page({
 	data: {
 		movieInfo:{},
 		loadingHidden:true,
+		actionSheetHidden:true,
+		shareItem:["微信朋友圈","微信好友"],
 	},
 	onLoad: function () {
 		// Do some initialize when page load.
@@ -15,7 +17,6 @@ Page({
 		wx.getStorage({
 			key:"movie_name",
 			success: function(res) {
-				console.log("---------------------" + res.data + "----------------")
 				//convert object to string
 				var navTitle = '' + res.data
 				wx.setNavigationBarTitle({
@@ -78,6 +79,35 @@ Page({
  				});
 			}
 		})
+	},
+
+	director_tap: function (e) {
+		console.log(e);
+	},
+
+	cast_tap: function (e) {
+		console.log(e);
+		// console.log(app.globalData.userInfo);
+	},
+
+	shareBtnClicked: function (e) {
+		// console.log(e);
+		this.setData({
+			actionSheetHidden:false,
+ 		})
+	},
+
+	actionSheetChange: function () {
+		this.setData({
+			actionSheetHidden:true,
+ 		})
+	},
+
+	bindItemTap: function (e) {
+		console.log(e);
+		this.setData({
+			actionSheetHidden:true,
+ 		})
 	}
 
 })
