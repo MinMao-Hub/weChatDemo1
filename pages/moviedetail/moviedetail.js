@@ -1,4 +1,4 @@
-var app = getApp()
+var app = getApp();
 
 Page({
 	data: {
@@ -9,7 +9,7 @@ Page({
 	},
 	onLoad: function () {
 		// Do some initialize when page load.
-		this.requestMovieInfo()
+		this.requestMovieInfo();
 	},
 
 	onReady: function () {
@@ -18,12 +18,12 @@ Page({
 			key:"movie_name",
 			success: function(res) {
 				//convert object to string
-				var navTitle = '' + res.data
+				var navTitle = '' + res.data;
 				wx.setNavigationBarTitle({
 					title:navTitle,
-				})
+				});
 			}
-		})
+		});
 	},
 
 	onShow: function () {
@@ -40,10 +40,10 @@ Page({
 
 	onPullDownRefresh: function () {
 		// Do something when pull down
-		this.requestMovieInfo()
+		this.requestMovieInfo();
 		this.setData ({
 			loadingHidden:false
-		})
+		});
 	},
 
 	requestMovieInfo: function () {
@@ -51,12 +51,12 @@ Page({
 		wx.getStorage({
 			key:"movie_id",
 			success: function(res) {
-				console.log("---------------------" + res.data + "----------------")
+				console.log("---------------------" + res.data + "----------------");
 				//convert object to string
-				var movieId = '' + res.data
+				var movieId = '' + res.data;
 				that.setData ({
 					loadingHidden:false
-				}),
+				});
 				wx.request({
 		    		//url 请求地址
 			    	url: 'https://api.douban.com/v2/movie/subject/' + movieId,
@@ -67,18 +67,18 @@ Page({
 		    		},
 			    	success: function(res) {
 				    	var data = res.data;
-				     	console.log(data)
+				     	console.log(data);
 			     		//想要显示到页面上的数据必须是data上出现的
 			     		that.setData({
 			        		movieInfo:data,
 			        		loadingHidden:true,
-			     		})
+			     		});
 			     		//停止当前页面的下拉刷新
-			     		wx.stopPullDownRefresh()
+			     		wx.stopPullDownRefresh();
 			    	}
  				});
 			}
-		})
+		});
 	},
 
 	director_tap: function (e) {
@@ -99,20 +99,20 @@ Page({
 		// console.log(e);
 		this.setData({
 			actionSheetHidden:false,
- 		})
+ 		});
 	},
 
 	actionSheetChange: function () {
 		this.setData({
 			actionSheetHidden:true,
- 		})
+ 		});
 	},
 
 	bindItemTap: function (e) {
 		console.log(e);
 		this.setData({
 			actionSheetHidden:true,
- 		})
+ 		});
 	}
 
-})
+});

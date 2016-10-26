@@ -1,4 +1,4 @@
-var app = getApp()
+var app = getApp();
 
 Page({
 	data: {
@@ -11,24 +11,24 @@ Page({
 	},
 	onLoad: function () {
 		// Do some initialize when page load.
-		this.requestMovieList()
+		this.requestMovieList();
 		this.setData ({
 			loadingHidden:false
-		}),
+		});
 		//设置缓存
 		wx.setStorage({
      		key:"movieListName",
      		value:''
-     	}),
+     	});
 
      	wx.setStorage({
      		key:"movie_id",
      		value:''
-     	}),
+     	});
      	wx.setStorage({
      		key:"movie_name",
      		value:''
-     	})
+     	});
 	},
 
 	onReady: function () {
@@ -42,12 +42,12 @@ Page({
 			key:"movieListName",
 			success: function(res) {
 				//convert object to string
-				var navTitle = '' + res.data
+				var navTitle = '' + res.data;
 				wx.setNavigationBarTitle({
 					title:navTitle,
-				})
+				});
 			}
-		})
+		});
 	},
 
 	onHide: function () {
@@ -63,17 +63,17 @@ Page({
 		this.setData({
     		start:0,
     		pageCount:10
- 		})
-		this.requestMovieList()
+ 		});
+		this.requestMovieList();
 	},
 
 	requestMovieList: function () {
-		var that = this
+		var that = this;
 
 		if (that.data.start > that.data.total) {
 			that.setData ({
 				toastHidden:false
-			})
+			});
 			return;
 		}
 
@@ -96,18 +96,17 @@ Page({
     		},
 	    	success: function(res) {
 		    	var data = res.data;
-		     	console.log(data)
-		     	console.log(data.subjects[0].images['medium'])
+		     	console.log(data);
 		     	//同步缓存
 		     	wx.setStorageSync("movieListName",data.title);
 		     	//设置导航条标题
 		     	wx.setNavigationBarTitle({
 					title:data.title,
-				})
+				});
 	     		//想要显示到页面上的数据必须是data上出现的
 
-	     		var movieListData = []
-	     		if (that.data.start == 0) {
+	     		var movieListData = [];
+	     		if (that.data.start === 0) {
 	     			movieListData = data.subjects;
 	     		} else {
 	     			movieListData = that.data.listData.concat(data.subjects);
@@ -118,32 +117,32 @@ Page({
 	        		loadingHidden:true,
 	        		start:that.data.start + 10,
 	        		total:data.total
-	     		})
+	     		});
 	     		//停止当前页面的下拉刷新
-	     		wx.stopPullDownRefresh()
+	     		wx.stopPullDownRefresh();
 	    	}
  		 });
 	},
 
 	loadMoreData: function () {
 		//加载更多数据 -- 没有加载更多接口   这里不做处理
-		this.requestMovieList()
+		this.requestMovieList();
 	},
 
 	toastChange: function () {
 		this.setData ({
 			toastHidden:true
-		})
+		});
 	},
 
 	selectedCell: function (e) {
 		var target_id = e.currentTarget.id;
 		var movie_id = target_id.split("|")[0];
 		var movie_name = target_id.split("|")[1];
-		console.log('影片id = ' + movie_id + 'name = ' + movie_name)
+		console.log('影片id = ' + movie_id + 'name = ' + movie_name);
 		wx.setStorageSync("movie_id",movie_id);
 		wx.setStorageSync("movie_name",movie_name);
 		wx.navigateTo({url:"../moviedetail/moviedetail"});
 	}
 
-})
+});

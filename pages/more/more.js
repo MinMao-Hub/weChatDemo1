@@ -1,4 +1,4 @@
-var app = getApp()
+var app = getApp();
 
 Page({
 	data: {
@@ -31,8 +31,8 @@ Page({
 	viewTap: function () {
 		this.setData ({
 			text: "更多页面被点击啦"
-		})
+		});
 	}
 
 
-})
+});
