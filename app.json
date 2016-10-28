@@ -21,18 +21,18 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "首页",
+        "text": "电影",
         "iconPath": "images/tabbar/sy_normal.png",
         "selectedIconPath": "images/tabbar/sy_selected.png"
       },
       {
         "pagePath": "pages/more/more",
-        "text": "我的",
+        "text": "笑话大全",
         "iconPath": "images/tabbar/wd_normal.png",
         "selectedIconPath": "images/tabbar/wd_selected.png"
       }
     ]
   },
 
-  "debug": true
+  "debug": false
 }

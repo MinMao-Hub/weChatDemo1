@@ -1,3 +1,75 @@
 <page>
-	
+	<Loading hidden="{{loadingHidden}}" duration="10">loading...</Loading>
+	<view class="container">
+		<view class="header_container">
+			<view class="userName_lbl">
+				<text>{{castInfo.name}}</text>
+				<text style="margin-left: 40rpx;">{{castInfo.name_en}}</text>
+			</view>
+			<view class="info_container">
+				<image class="cast_avatars" src="{{castInfo.avatars.large}}" mode="aspectFit" data-url="{{castInfo.avatars.large}}" bindtap="movieImageTaped"></image>
+				<view class="detail_info">
+					<view class="one_info">
+						<text>性别:{{castInfo.gender}}</text>
+					</view>
+					<view class="one_info">
+						<text>出生地:{{castInfo.born_place}}</text>
+					</view>
+					<view class="one_info">
+						<text>更多英文名:</text>
+						<block hidden="{{castInfo.aka_en.length < 1}}" wx:for="{{castInfo.aka_en}}">
+							<text>{{index == 0 ? "" : ";"}}{{item}}</text>
+						</block>
+					</view>
+					<view class="one_info">
+						<text>昵称:</text>
+						<block hidden="{{castInfo.aka.length < 1}}" wx:for="{{castInfo.aka}}">
+							<text>{{index == 0 ? "" : ";"}}{{item}}</text>
+						</block>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="content_container">
+			<view style="font-size: 35rpx;text-align: left;">代表作品</view>
+			<block wx:for-items="{{castInfo.works}}">
+			<view id="{{item.subject.id}}{{'|'}}{{item.subject.title}}" class="movie_info" bindtap="selectedCell">
+				<image class="movie-image" mode="aspectFill" src="{{item.subject.images.large}}"></image>
+				<view class="movie-container">
+					<view class="movie-name">
+						<!-- 名字、评分 -->
+						<text>{{item.subject.title}}</text><text class="movie-score">{{item.subject.rating.average}}分</text>
+					</view>
+					<!-- 导演 -->
+					<view class="movie-detail-info">
+						<text class="people-name">导演: {{item.subject.directors[0].name}}</text>
+					</view>
+					<!-- 主演 -->
+					<view class="movie-detail-info">
+						<text class="people-name">主演: </text> 
+						<span class="people-name" wx:for-items="{{item.subject.casts}}">
+							{{index ? '/' : ''}}{{item.name}}
+						</span>
+					</view>
+					<!-- 类型 -->
+					<view class="movie-detail-info">
+						<text class="people-name">类型: </text>
+						<span class="people-name" wx:for-items="{{item.subject.genres}}">
+							{{index ? '/' : ''}}{{item}}
+						</span>
+					</view>
+
+					<!-- 上映年份 -->
+					<view class="movie-detail-info">
+						<text class="genres" class="people-name">上映年份: {{item.subject.year}}</text>
+					</view>
+				</view>
+			</view>
+		</block>
+		</view>
+
+		<view class="footer">
+			
+		</view>
+	</view>
 </page>

@@ -1,0 +1,101 @@
+.container {
+	background-color: #FBF9FE;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.header_container {
+	padding: 10px;
+	background-color: #ffffff;
+	/*width: 100%;*/
+}
+
+.userName_lbl {
+	font-size: 25px;
+
+}
+
+.info_container {
+	padding: 10px;
+	position: relative;
+	background-color: #ffffff;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+}
+
+.cast_avatars {
+	/*white-space: nowrap;*/
+	display: inline-block;
+	/*position: relative;*/
+	width: 230rpx;
+	height: 305rpx;
+}
+
+.detail_info {
+	font-size: 16px;
+}
+
+.one_info {
+	margin: 10px 0 10px 20px;
+}
+
+
+
+
+/* 参演过的电影 */
+.content_container {
+	padding: 10px;
+	/*background-color: #ffffff;*/
+
+}
+
+.movie_info {
+	margin: 10rpx 0;
+	padding: 20rpx;
+	border-radius:8rpx;
+	background-color: #efefef;
+	color: #000000;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.movie-image {
+	/*position: absolute;*/
+	width: 150rpx;
+	height: 260rpx;
+}
+
+.movie-container {
+	/*display: inline-block;*/
+	position: absolute;
+	left: 180rpx;
+	top: 0;
+	right: 0;
+}
+
+.movie-name {
+	font-size: 38rpx;
+	margin-top: 20rpx;
+}
+
+.movie-score {
+	margin-left: 35rpx;
+	color: #f36b37;
+}
+
+.movie-detail-info {
+	margin-top: 5rpx;
+	margin-right: 8rpx; 
+}
+
+.people-name {
+	font-size: 25rpx;
+}

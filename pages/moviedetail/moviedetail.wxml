@@ -3,7 +3,7 @@
 		<view class="top_container">
 			<Loading hidden="{{loadingHidden}}">loading...</Loading>
 			<view class="movie_info">
-				<image class="movie-image" mode="aspectFill" src="{{movieInfo.images.large}}"></image>
+				<image class="movie-image" mode="aspectFill" src="{{movieInfo.images.large}}" data-url="{{movieInfo.images.large}}" bindtap="movieImageTaped"></image>
 				<view class="movie-container">
 					<view class="movie-name">
 						<!-- 名字、评分 -->

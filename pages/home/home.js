@@ -12,21 +12,10 @@ Page({
 	onLoad: function () {
 		// Do some initialize when page load.
 		this.requestMovieList();
-		this.setData ({
-			loadingHidden:false
-		});
+
 		//设置缓存
 		wx.setStorage({
      		key:"movieListName",
-     		value:''
-     	});
-
-     	wx.setStorage({
-     		key:"movie_id",
-     		value:''
-     	});
-     	wx.setStorage({
-     		key:"movie_name",
      		value:''
      	});
 	},
@@ -74,12 +63,24 @@ Page({
 			that.setData ({
 				toastHidden:false
 			});
+
+			// wx.showToast({
+			//   title: '没有更多数据啦！',
+			//   icon: 'success',
+			//   duration: 2000
+			// });
 			return;
 		}
 
 		that.setData ({
 			loadingHidden:false
 		});
+
+		// wx.showToast({
+		//   title: '加载中...',
+		//   icon: 'loading',
+		//   duration: 2000,
+		// });
 
 		//加载数据
   		wx.request({
@@ -118,6 +119,10 @@ Page({
 	        		start:that.data.start + 10,
 	        		total:data.total
 	     		});
+
+	   //   		setTimeout(function(){
+				//   wx.hideToast();
+				// },2000);
 	     		//停止当前页面的下拉刷新
 	     		wx.stopPullDownRefresh();
 	    	}
@@ -140,9 +145,22 @@ Page({
 		var movie_id = target_id.split("|")[0];
 		var movie_name = target_id.split("|")[1];
 		console.log('影片id = ' + movie_id + 'name = ' + movie_name);
-		wx.setStorageSync("movie_id",movie_id);
-		wx.setStorageSync("movie_name",movie_name);
+
+		var data  = JSON.stringify({
+			movie_id: movie_id,
+			movie_name: movie_name
+		});
+		app.globalData.movie_data = data;
+
 		wx.navigateTo({url:"../moviedetail/moviedetail"});
+		
+		// wx.setStorage({
+		// 	key:'movie_data',
+		// 	data: data,
+		// 	success: function () {
+		// 		wx.navigateTo({url:"../moviedetail/moviedetail"});
+		// 	}
+		// });
 	}
 
 });
