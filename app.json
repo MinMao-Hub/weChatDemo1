@@ -1,13 +1,13 @@
 {
 	"pages":[
 		"pages/home/home",
-		"pages/more/more",
+		"pages/joke/joke",
     "pages/moviedetail/moviedetail",
     "pages/castdetail/castdetail"
 	],
 
 	"window": {
-		"navigationBarBackgroundColor": "red",
+		"navigationBarBackgroundColor": "#3d3d3b",
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "首页",
 		"backgroundColor": "#e5e5e5"
@@ -26,7 +26,7 @@
         "selectedIconPath": "images/tabbar/sy_selected.png"
       },
       {
-        "pagePath": "pages/more/more",
+        "pagePath": "pages/joke/joke",
         "text": "笑话大全",
         "iconPath": "images/tabbar/wd_normal.png",
         "selectedIconPath": "images/tabbar/wd_selected.png"
