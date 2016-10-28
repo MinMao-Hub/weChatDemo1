@@ -3,7 +3,7 @@ var app = getApp();
 Page({
 	data: {
 		jokeListInfo:[],
-		defaultReqDataQuantity:20,
+		defaultReqDataQuantity:10,
 		currentPage:1
 	},
 	onLoad: function () {
@@ -30,7 +30,6 @@ Page({
 	onPullDownRefresh: function () {
 		// Do something when pull down
 		this.setData({
-			defaultReqDataQuantity:20,
 			currentPage:1
 		});
 		this.requestJokeList();
