@@ -4,7 +4,7 @@ Page({
 	data: {
 		jokeListInfo:[],
 		defaultReqDataQuantity:10,
-		currentPage:1
+		currentPage:1,
 	},
 	onLoad: function () {
 		// Do some initialize when page load.
@@ -91,6 +91,10 @@ Page({
 					listInfo = that.data.jokeListInfo.concat(data.result.data);
 				}
 
+				listInfo.forEach(function(i){
+					i.content = loadXMLString(i.content);
+				});
+
 				that.setData({
 					jokeListInfo:listInfo,
 					currentPage:that.data.currentPage + 1,
@@ -103,3 +107,9 @@ Page({
 
 
 });
+
+/*字符串转dom对象*/
+	function loadXMLString(txt) {
+	    return txt.replace(/\&nbsp\;/g,"");
+	}
+
