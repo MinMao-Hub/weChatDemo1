@@ -1,7 +1,7 @@
 <page>
 	<view class="container">
 		<toast hidden="{{toastHidden}}" duration="3000" bindchange="toastChange">没有更多数据啦</toast>
-		<block wx:for-items="{{listData}}">
+		<block wx:for="{{listData}}" wx:for-item="item" wx:key="unique">
 			<view id="{{item.id}}{{'|'}}{{item.title}}" class="movie_info" bindtap="selectedCell">
 				<image class="movie-image" mode="aspectFill" src="{{item.images.large}}"></image>
 				<view class="movie-container">
@@ -16,15 +16,15 @@
 					<!-- 主演 -->
 					<view class="movie-detail-info">
 						<text class="people-name">主演: </text> 
-						<span class="people-name" wx:for-items="{{item.casts}}">
-							{{index ? '/' : ''}}{{item.name}}
+						<span class="people-name" wx:for="{{item.casts}}" wx:for-item="cast" wx:for-index="idx" wx:key="unique">
+							{{idx ? '/' : ''}}{{cast.name}}
 						</span>
 					</view>
 					<!-- 类型 -->
 					<view class="movie-detail-info">
 						<text class="people-name">类型: </text>
-						<span class="people-name" wx:for-items="{{item.genres}}">
-							{{index ? '/' : ''}}{{item}}
+						<span class="people-name" wx:for="{{item.genres}}" wx:for-item="movieType" wx:for-index="idx" wx:key="unique">
+							{{idx ? '/' : ''}}{{movieType}}
 						</span>
 					</view>
 

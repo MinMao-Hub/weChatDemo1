@@ -1,6 +1,6 @@
 <page>
 	<view class="container">
-		<block wx:for-items="{{jokeListInfo}}">
+		<block wx:for="{{jokeListInfo}}" wx:for-item="item" wx:key="unique">
 			<view style="background-color: #3d3d3b;height: 0.5px;"></view>
 			<view class="joke_content">
 				<!-- 笑话内容 -->

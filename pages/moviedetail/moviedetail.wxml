@@ -17,15 +17,15 @@
 					<!-- 类型 -->
 					<view class="movie-detail-info">
 						<text class="people-name">类型: </text>
-						<span class="people-name" wx:for-items="{{movieInfo.genres}}">
-							{{index ? '/' : ''}}{{item}}
+						<span class="people-name" wx:for="{{movieInfo.genres}}" wx:for-item="movieType" wx:for-index="idx" wx:key="unique">
+							{{idx ? '/' : ''}}{{movieType}}
 						</span>
 					</view>
 					<!-- 地区 -->
 					<view class="movie-detail-info">
 						<text class="people-name">地区: </text> 
-						<span class="people-name" wx:for-items="{{movieInfo.countries}}">
-							{{index ? '/' : ''}}{{item}}
+						<span class="people-name" wx:for="{{movieInfo.countries}}" wx:for-item="open_place" wx:for-index="idx" wx:key="unique">
+							{{idx ? '/' : ''}}{{open_place}}
 						</span>
 					</view>
 
@@ -58,7 +58,7 @@
 					<scroll-view class="cast_scroll" scroll-x="true">
 						<view class="cast_list">
 					<!-- 演员列表 -->
-							<view class="casts_view" wx:for-items="{{movieInfo.casts}}">
+							<view class="casts_view" wx:for="{{movieInfo.casts}}" wx:for-item="item" wx:key="unique">
 								<!-- 某一个演员 -->
 								<image class="cast_image" mode="aspectFill" src="{{item.avatars.large}}" bindtap="cast_tap" id="{{item.id}}"></image>
 								<view>
@@ -74,7 +74,7 @@
 			<view class="share_btn" bindtap="shareBtnClicked" id="{{movieInfo.mobile_url}}">分享</view>
 		</view>
 		<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
-		  <block wx:for="{{shareItem}}">
+		  <block wx:for="{{shareItem}}" wx:for-item="item" wx:key="unique">
 		   <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
 		  </block>
 		  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>

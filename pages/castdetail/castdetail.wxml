@@ -17,14 +17,14 @@
 					</view>
 					<view class="one_info">
 						<text>更多英文名:</text>
-						<block hidden="{{castInfo.aka_en.length < 1}}" wx:for="{{castInfo.aka_en}}">
-							<text>{{index == 0 ? "" : ";"}}{{item}}</text>
+						<block hidden="{{castInfo.aka_en.length < 1}}" wx:for="{{castInfo.aka_en}}" wx:for-item="en_name" wx:for-index="idx" wx:key="unique">
+							<text>{{idx == 0 ? "" : ";"}}{{en_name}}</text>
 						</block>
 					</view>
 					<view class="one_info">
 						<text>昵称:</text>
-						<block hidden="{{castInfo.aka.length < 1}}" wx:for="{{castInfo.aka}}">
-							<text>{{index == 0 ? "" : ";"}}{{item}}</text>
+						<block hidden="{{castInfo.aka.length < 1}}" wx:for="{{castInfo.aka}}" wx:for-item="other_name" wx:for-index="idx" wx:key="unique">
+							<text>{{idx == 0 ? "" : ";"}}{{other_name}}</text>
 						</block>
 					</view>
 				</view>
@@ -32,7 +32,7 @@
 		</view>
 		<view class="content_container">
 			<view style="font-size: 35rpx;text-align: left;">代表作品</view>
-			<block wx:for-items="{{castInfo.works}}">
+			<block wx:for="{{castInfo.works}}" wx:for-item="item" wx:key="unique">
 			<view id="{{item.subject.id}}{{'|'}}{{item.subject.title}}" class="movie_info" bindtap="selectedCell">
 				<image class="movie-image" mode="aspectFill" src="{{item.subject.images.large}}"></image>
 				<view class="movie-container">
@@ -47,15 +47,15 @@
 					<!-- 主演 -->
 					<view class="movie-detail-info">
 						<text class="people-name">主演: </text> 
-						<span class="people-name" wx:for-items="{{item.subject.casts}}">
-							{{index ? '/' : ''}}{{item.name}}
+						<span class="people-name" wx:for="{{item.subject.casts}}" wx:for-item="cast" wx:for-index="idx"  wx:key="unique">
+							{{idx ? '/' : ''}}{{cast.name}}
 						</span>
 					</view>
 					<!-- 类型 -->
 					<view class="movie-detail-info">
 						<text class="people-name">类型: </text>
-						<span class="people-name" wx:for-items="{{item.subject.genres}}">
-							{{index ? '/' : ''}}{{item}}
+						<span class="people-name" wx:for="{{item.subject.genres}}" wx:for-item="movieType" wx:for-index="idx" wx:key="unique">
+							{{idx ? '/' : ''}}{{movieType}}
 						</span>
 					</view>
 
